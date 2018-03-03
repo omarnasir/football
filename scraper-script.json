@@ -1,0 +1,122 @@
+{
+    "_id": "club",
+    "startUrl": [
+        "https://www.whoscored.com/Teams/167/Fixtures/England-Manchester-City"
+    ],
+    "selectors": [
+        {
+            "id": "matches",
+            "type": "SelectorLink",
+            "selector": "a.result-1",
+            "parentSelectors": [
+                "_root"
+            ],
+            "multiple": true,
+            "delay": "5000"
+        },
+        {
+            "id": "summary_home",
+            "type": "SelectorText",
+            "selector": "div.timeline-content div.timeline-events:nth-of-type(1)",
+            "parentSelectors": [
+                "matches"
+            ],
+            "multiple": false,
+            "regex": "",
+            "delay": 0
+        },
+        {
+            "id": "summary_away",
+            "type": "SelectorText",
+            "selector": "div.timeline-content div.timeline-events:nth-of-type(3)",
+            "parentSelectors": [
+                "matches"
+            ],
+            "multiple": false,
+            "regex": "",
+            "delay": 0
+        },
+        {
+            "id": "gotosummary",
+            "type": "SelectorLink",
+            "selector": "div.with-single-level li:nth-of-type(2) a",
+            "parentSelectors": [
+                "matches"
+            ],
+            "multiple": false,
+            "delay": "1000"
+        },
+        {
+            "id": "matchsummary",
+            "type": "SelectorText",
+            "selector": "div.match-header table",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": false,
+            "regex": "",
+            "delay": 0
+        },
+        {
+            "id": "teamstatistics",
+            "type": "SelectorText",
+            "selector": "div.side-box-content",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": false,
+            "regex": "",
+            "delay": 0
+        },
+        {
+            "id": "home_data_click",
+            "type": "SelectorElementClick",
+            "selector": "div#layout-content-wrapper",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": true,
+            "delay": "1000",
+            "clickElementSelector": "div#live-player-home-stats li:nth-of-type(n) a",
+            "clickType": "clickMore",
+            "discardInitialElements": false,
+            "clickElementUniquenessType": "uniqueText"
+        },
+        {
+            "id": "home_data_summary",
+            "type": "SelectorText",
+            "selector": "div#live-player-home-stats table.grid",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": true,
+            "regex": "",
+            "delay": 0
+        },
+        {
+            "id": "away_data_click",
+            "type": "SelectorElementClick",
+            "selector": "div#layout-content-wrapper",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": true,
+            "delay": "1000",
+            "clickElementSelector": "div#live-player-away-stats li:nth-of-type(n) a",
+            "clickType": "clickMore",
+            "discardInitialElements": false,
+            "clickElementUniquenessType": "uniqueText"
+        },
+        {
+            "id": "away_data_summary",
+            "type": "SelectorText",
+            "selector": "div#live-player-away-stats table.grid",
+            "parentSelectors": [
+                "gotosummary"
+            ],
+            "multiple": true,
+            "regex": "",
+            "delay": 0
+        }
+    ]
+}
